@@ -1,11 +1,11 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import userReducer from "../feature/user/userSlice";
-// import movieReducer from "../features/movie/movieSlice";
+import movieReducer from "../feature/movie/movieSlice";
 
 export default configureStore({
   reducer: {
     user: userReducer,
-    // movie: movieReducer,
+    movie: movieReducer,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: false,

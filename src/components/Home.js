@@ -8,6 +8,7 @@ import Viewers from "./Viewers";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import db from "../firebase";
+import { onSnapshot, collection } from 'firebase/firestore';
 import { setMovies } from "../feature/movie/movieSlice";
 import { selectUserName } from "../feature/user/userSlice";
 
@@ -21,7 +22,8 @@ const Home = (props) => {
 
   useEffect(() => {
     console.log("hello");
-    db.collection("movies").onSnapshot((snapshot) => {
+    console.log(db)
+    onSnapshot(collection(db,"movies"), (snapshot) =>{
       snapshot.docs.map((doc) => {
         console.log(recommends);
         switch (doc.data().type) {

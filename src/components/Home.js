@@ -64,9 +64,9 @@ const Home = (props) => {
       <ImgSlider />
       <Viewers />
       <Recommends />
-      <NewDisney />
       <Originals />
       <Trending />
+      <NewDisney />
     </Container>
   );
 };

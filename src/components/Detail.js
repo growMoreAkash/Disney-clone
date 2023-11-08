@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import db from "../firebase";
+import { collection, doc, getDoc  } from "firebase/firestore"; 
 
 const Detail = (props) => {
   const { id } = useParams();
   const [detailData, setDetailData] = useState({});
 
   useEffect(() => {
-    db.collection("movies")
-      .doc(id)
-      .get()
+    const movieRef = collection(db,"movies")
+    console.log(movieRef)
+    getDoc(doc(movieRef,id))
       .then((doc) => {
         if (doc.exists) {
           setDetailData(doc.data());

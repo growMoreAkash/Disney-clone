@@ -24,7 +24,10 @@ const Home = (props) => {
     console.log("hello");
     console.log(db)
     onSnapshot(collection(db,"movies"), (snapshot) =>{
+      console.log("akasjh1")
+      console.log(snapshot)
       snapshot.docs.map((doc) => {
+        console.log("akash2")
         console.log(recommends);
         switch (doc.data().type) {
           case "recommend":
